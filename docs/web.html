@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Proposal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+        }
+        p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+<div class="section">
+    <h1>Project Proposal (due Wednesday, March 27th)</h1>
+    <p>The purpose of the proposal is two-fold:</p>
+    <ol>
+        <li>Writing your ideas down forces you to organize your thoughts about your project.</li>
+        <li>It gives 15-418/618 course staff the ability to verify your plans are of the right scope given our expectations (it also gives us the ability to offer suggestions and help).</li>
+    </ol>
+</div>
+
+<div class="section">
+    <h2>TITLE</h2>
+    <p>Optimized Particle Simulator on Next-Gen GPUs</p>
+    <p>by Jane Doe and John Smith</p>
+</div>
+
+<div class="section">
+    <h2>URL</h2>
+    <p><a href="https://www.example.com/project-url">https://www.example.com/project-url</a></p>
+</div>
+
+<div class="section">
+    <h2>SUMMARY</h2>
+    <p>We plan to develop an optimized Smoothed Particle Hydrodynamics (SPH) fluid solver to leverage the parallel processing capabilities of next-generation NVIDIA GPUs. The goal is to achieve a significant performance boost for large-scale fluid simulations compared to current CPU implementations.</p>
+</div>
+
+<div class="section">
+    <h2>BACKGROUND</h2>
+    <p>Our project involves implementing a compute-intensive fluid simulation application based on the SPH method. This simulation is widely used in physics and engineering to model complex fluid dynamics. The parallel nature of fluid particle calculations makes this problem a good candidate for GPU acceleration.</p>
+    <p>... (additional paragraphs with more details, block diagrams, or pseudocode) ...</p>
+</div>
+
+<div class="section">
+    <h2>THE CHALLENGE</h2>
+    <p>The main challenge lies in efficiently mapping the computation of fluid dynamics to the GPU architecture, which involves handling dependencies between particles and ensuring memory access patterns that exploit the GPU's bandwidth. We hope to learn about optimizing memory access patterns and managing GPU threads for high-performance computing.</p>
+    <p>... (additional details about the workload, memory access characteristics, constraints) ...</p>
+</div>
+
+<div class="section">
+    <h2>RESOURCES</h2>
+    <p>We will be using the NVIDIA GPUs available in our lab, and we plan to begin with the open-source SPH implementation from GitHub as our code base. We will refer to the following paper for our implementation: "GPU Computing Gems Emerald Edition" (citation with more details).</p>
+    <p>... (additional resources or needs) ...</p>
+</div>
+
+<div class="section">
+    <h2>GOALS AND DELIVERABLES</h2>
+    <p>Our PLAN TO ACHIEVE goal is to implement the basic SPH algorithm on the GPU with at least a 5x performance improvement over the baseline CPU version. Our STRETCH GOAL is to optimize the solver to achieve a 10x improvement and investigate multi-GPU scaling.</p>
+    <p>At the poster session, we will present an interactive demo that visualizes the fluid simulations running in real-time on the GPU. We will also present performance analysis graphs comparing our GPU implementation with the CPU baseline.</p>
+    <p>... (additional goals, analysis objectives, and system capabilities) ...</p>
+</div>
+
+<div class="section">
+    <h2>PLATFORM CHOICE</h2>
+    <p>We have selected NVIDIA GPUs as our target platform due to their widespread use in high-performance computing and their support for CUDA, which provides a rich set of tools for developing parallel applications.</p>
+    <p>... (justification for platform choice) ...</p>
+</div>
+
+<div class="section">
+    <h2>SCHEDULE</h2>
+    <p>Week 1: Set up development environment and familiarize with the GPU lab.</p>
+    <p>Week 2:```html
+Begin porting baseline SPH code to CUDA.</p>
+    <p>Week 3: Optimize memory access patterns for particle data.</p>
+    <p>Week 4: Implement parallel particle computation kernels.</p>
+    <p>... (additional weekly items leading up to the competition) ...</p>
+    <p>Intermediate Milestone (April 16th): Achieve a working GPU prototype with initial performance measurements.</p>
+</div>
+
+<div class="section">
+    <h2>Submitting your proposal writeup</h2>
+    <p>Please post your writeup on your project web page. Your proposal should be a link on your web page, not the entire web page itself. In addition, please submit your writeup to Gradescope (as a group submission). Include a URL for your project web page in your Gradescope submission.</p>
+</div>
+
+</body>
+</html>

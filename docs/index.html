@@ -2,99 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Proposal</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        h1 {
-            color: #333;
-        }
-        h2 {
-            color: #555;
-        }
-        p {
-            color: #666;
-        }
-    </style>
+    <title>N Moving Body Simulation - 15618 Project Proposal</title>
 </head>
 <body>
-
-<div class="section">
-    <h1>Project Proposal (due Wednesday, March 27th)</h1>
-    <p>The purpose of the proposal is two-fold:</p>
-    <ol>
-        <li>Writing your ideas down forces you to organize your thoughts about your project.</li>
-        <li>It gives 15-418/618 course staff the ability to verify your plans are of the right scope given our expectations (it also gives us the ability to offer suggestions and help).</li>
-    </ol>
-</div>
-
-<div class="section">
-    <h2>TITLE</h2>
-    <p>Optimized Particle Simulator on Next-Gen GPUs</p>
-    <p>by Jane Doe and John Smith</p>
-</div>
-
-<div class="section">
-    <h2>URL</h2>
-    <p><a href="https://www.example.com/project-url">https://www.example.com/project-url</a></p>
-</div>
-
-<div class="section">
-    <h2>SUMMARY</h2>
-    <p>We plan to develop an optimized Smoothed Particle Hydrodynamics (SPH) fluid solver to leverage the parallel processing capabilities of next-generation NVIDIA GPUs. The goal is to achieve a significant performance boost for large-scale fluid simulations compared to current CPU implementations.</p>
-</div>
-
-<div class="section">
-    <h2>BACKGROUND</h2>
-    <p>Our project involves implementing a compute-intensive fluid simulation application based on the SPH method. This simulation is widely used in physics and engineering to model complex fluid dynamics. The parallel nature of fluid particle calculations makes this problem a good candidate for GPU acceleration.</p>
-    <p>... (additional paragraphs with more details, block diagrams, or pseudocode) ...</p>
-</div>
-
-<div class="section">
-    <h2>THE CHALLENGE</h2>
-    <p>The main challenge lies in efficiently mapping the computation of fluid dynamics to the GPU architecture, which involves handling dependencies between particles and ensuring memory access patterns that exploit the GPU's bandwidth. We hope to learn about optimizing memory access patterns and managing GPU threads for high-performance computing.</p>
-    <p>... (additional details about the workload, memory access characteristics, constraints) ...</p>
-</div>
-
-<div class="section">
-    <h2>RESOURCES</h2>
-    <p>We will be using the NVIDIA GPUs available in our lab, and we plan to begin with the open-source SPH implementation from GitHub as our code base. We will refer to the following paper for our implementation: "GPU Computing Gems Emerald Edition" (citation with more details).</p>
-    <p>... (additional resources or needs) ...</p>
-</div>
-
-<div class="section">
-    <h2>GOALS AND DELIVERABLES</h2>
-    <p>Our PLAN TO ACHIEVE goal is to implement the basic SPH algorithm on the GPU with at least a 5x performance improvement over the baseline CPU version. Our STRETCH GOAL is to optimize the solver to achieve a 10x improvement and investigate multi-GPU scaling.</p>
-    <p>At the poster session, we will present an interactive demo that visualizes the fluid simulations running in real-time on the GPU. We will also present performance analysis graphs comparing our GPU implementation with the CPU baseline.</p>
-    <p>... (additional goals, analysis objectives, and system capabilities) ...</p>
-</div>
-
-<div class="section">
-    <h2>PLATFORM CHOICE</h2>
-    <p>We have selected NVIDIA GPUs as our target platform due to their widespread use in high-performance computing and their support for CUDA, which provides a rich set of tools for developing parallel applications.</p>
-    <p>... (justification for platform choice) ...</p>
-</div>
-
-<div class="section">
-    <h2>SCHEDULE</h2>
-    <p>Week 1: Set up development environment and familiarize with the GPU lab.</p>
-    <p>Week 2:```html
-Begin porting baseline SPH code to CUDA.</p>
-    <p>Week 3: Optimize memory access patterns for particle data.</p>
-    <p>Week 4: Implement parallel particle computation kernels.</p>
-    <p>... (additional weekly items leading up to the competition) ...</p>
-    <p>Intermediate Milestone (April 16th): Achieve a working GPU prototype with initial performance measurements.</p>
-</div>
-
-<div class="section">
-    <h2>Submitting your proposal writeup</h2>
-    <p>Please post your writeup on your project web page. Your proposal should be a link on your web page, not the entire web page itself. In addition, please submit your writeup to Gradescope (as a group submission). Include a URL for your project web page in your Gradescope submission.</p>
-</div>
-
+    <h1>15618 Project: N moving body simulation</h1>
+    <p><strong>Team members:</strong> Akhil Kashyap and Ashwin Nayak Ullal</p>
+    <p><strong>Website URL:</strong> <a href="https://quantum109678.github.io/15618-course-project/" target="_blank">https://quantum109678.github.io/15618-course-project/</a></p>
+    <h3>SUMMARY:</h3>
+    <p>We are going to implement the N body simulation, where we simulate the movement of N bodies/particles in a 2 dimensional space under the influence of gravitational force using Pthreads, OpenMP and MPI. We will compare the Speedup achieved using these 3 approaches.</p>
+    <h3>BACKGROUND:</h3>
+    <p>The N-body simulation is a classic computational physics problem in which the objective is to predict the individual motions of a group of celestial objects interacting with each other gravitationally. Each body exerts a force on all others, influencing their acceleration, velocity, and ultimately, their position over time. This problem scales quadratically with the number of bodies (N^2), as every body interacts with every other body, making it computationally intensive, especially for large values of N.</p>
+    <p>The simulation involves calculating the gravitational forces between all pairs of bodies, updating their velocities and positions, and iterating this process over discrete time steps. The computationally demanding nature of this task makes it an ideal candidate for parallelization.</p>
+    <p>Parallelism can be exploited in several ways: by distributing the computation of forces among processors, by parallelizing the update of body attributes, or by doing both concurrently. The goal of parallelizing the N-body simulation is to reduce the overall computation time by dividing the work among multiple processing elements. In shared-memory systems, threads can be created via Pthreads or OpenMP to perform calculations concurrently, with OpenMP providing a higher-level, often simpler, abstraction for parallelism. Message Passing Interface (MPI) is used for distributed-memory systems where data is passed between processes running on different nodes of a cluster. Hybrid approaches can combine MPI with OpenMP to leverage both distributed and shared memory models, and for highly parallel architectures like GPUs, CUDA can be utilized to perform massive amounts of calculations in parallel.</p>
+    <p>The N-body simulation's inherent lack of data dependency during the force calculation phase makes it particularly amenable to parallel processing. Each body's new state can be computed independently based on a common, unchanging snapshot of the system. This characteristic allows for the distribution of the simulation across multiple computational units without the need for synchronization during the calculation phase, thus providing a significant opportunity for performance gains through parallelism. The speedup and efficiency of parallel implementations can be measured by comparing the execution time to that of a sequential algorithm, particularly as the number of bodies and the computational resources vary.</p>
+    <p><strong>Project Proposal link:</strong> <a href="https://github.com/quantum109678/15618-course-project/blob/main/docs/Project%20proposal.pdf" target="_blank">https://github.com/quantum109678/15618-course-project/blob/main/docs/Project%20proposal.pdf</a></p>
 </body>
 </html>
